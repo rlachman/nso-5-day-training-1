@@ -75,7 +75,7 @@ def create_list_item():
     """
     with ncs.maapi.single_write_trans('admin', 'python', groups=['ncsadmin']) as t:
         root = ncs.maagic.get_root(t)
-        root.devices.device.config.interface.vlan.create("200")
+        root.devices.device.config.ios__interface.vlan.create("200")
         t.apply()
 
 def add_device(device_name):
