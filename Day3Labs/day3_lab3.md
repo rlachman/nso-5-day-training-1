@@ -1056,7 +1056,7 @@ So I need to a do a sync-from before initiating my sevice instance, and cancel t
 ```
 admin@ncs(config-nso-qos-no-python-LD_SITE_INSTANCE)# commit
 Aborted: Network Element Driver: device myqosdevice: out of sync
-admin@ncs(config-nso-qos-no-python-LD_SITE_INSTANCE)# *** ALARM out-of-sync: Device myqosdevice is out of sync
+admin@ncs(config-nso-qos-no-python-LD_SITE_INSTANCE)#  ** * ALARM out-of-sync: Device myqosdevice is out of sync
 admin@ncs(config-nso-qos-no-python-LD_SITE_INSTANCE)# end
 Uncommitted changes found, commit them? [yes/no/CANCEL] no
 admin@ncs# devices device myqosdevice sync-from
@@ -1217,7 +1217,7 @@ myqosdevice(config)# end
 myqosdevice# write memory
 myqosdevice# exit
 
-**made a change**
+ ** made a change ** 
 
 admin@ncs# devices device myqosdevice sync-from
 result true

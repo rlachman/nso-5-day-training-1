@@ -15,7 +15,7 @@ Log into NSO, and enter config mode if not already. Make sure your devices are s
 -Note, depending on your test device, you may have to adapt your interface name from GigabitEthernet 0/0/0 to whatever is a real interface on that device
 
 ```
-** go into configure mode**
+ **  go into configure mode ** 
 conf
 
 admin@ncs(config)# devices device svl290-gg04-asr1004-wan-gw3

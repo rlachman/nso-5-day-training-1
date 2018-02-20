@@ -8,7 +8,7 @@ We are going add a real (lab) device to NSO, but first we will be adding a netsi
 Finally we will add both devices to a device-group (a logical grouping of devices, which may or may not have the same authgroups).
 
 ### Creating an Authgroup
-**First** we need to create an 'authgroup', which is basically equivalent to our Cisco PGM.
+ ** First **  we need to create an 'authgroup', which is basically equivalent to our Cisco PGM.
 
 Log into NSO CLI and type this command, given your proper credentials (first enter configure mode):
 ```
@@ -22,7 +22,7 @@ Commit complete.
 
 *Then, for that new authgroup let's add a login name named 'admin'. The remote-secondary-password is the enable password it will try if needed.*
 
-In a **typical NSO situation on your own**, you would add your .web password for the remote-password part, and the PGM NOC enable password for the remote-secondary-password part.
+In a  ** typical NSO situation on your own ** , you would add your .web password for the remote-password part, and the PGM NOC enable password for the remote-secondary-password part.
 
 Thus we have a new authgroup with a login username, default password and a backup enable password.
 
@@ -31,12 +31,12 @@ Thus we have a new authgroup with a login username, default password and a backu
 Now that we have credentials set up, we need to tell NSO which device we want to add by either specifying the IP.
 
 NSO needs a couple of things to make changes to a network device:
-- **Device info** (a name to call it-typically the hostname, an IP address, the type of NED to be used, an authgroup-basically the same as a PGM, ssh keys and network connectivity)
--An **authgroup**, which is basically a PGM group (username, password, enable password). You can have multiple authgroups, and each device must associated with an authgroup.
--The device needs to be **admin state unlocked**. By default when a device is added to the NSO list of devices, it is in admin state locked. In order to initiate a sync-from to pull the config (or to do any configuration change), the device must be first unlocked. It is best to lock the devices again after finishing, to avoid any accidental configuration.
--NSO needs to know what type of device it is interacting with (IOS, IOS-XR, NX-OS, etc). This is called the **NED (Network Element Driver)**.
-- NSO needs to pull the **SSH keys** from the device. This is done only after the commit has occured and the device
-- Finally you need to tell it to grab a local copy of the **device's running config**. NSO calls this process "sync-from," where NSO logs into the device and captures the running-config to parse it into NSO's local XML database. This local copy of the config will only be updated upon a request of sync-from. It does not automatically update. You can do a 'check-sync' to quickly find out if the NSO local config version is the same as the one currently on the device. We will cover this shortly.
+-  ** Device info **  (a name to call it-typically the hostname, an IP address, the type of NED to be used, an authgroup-basically the same as a PGM, ssh keys and network connectivity)
+-An  ** authgroup ** , which is basically a PGM group (username, password, enable password). You can have multiple authgroups, and each device must associated with an authgroup.
+-The device needs to be  ** admin state unlocked ** . By default when a device is added to the NSO list of devices, it is in admin state locked. In order to initiate a sync-from to pull the config (or to do any configuration change), the device must be first unlocked. It is best to lock the devices again after finishing, to avoid any accidental configuration.
+-NSO needs to know what type of device it is interacting with (IOS, IOS-XR, NX-OS, etc). This is called the  ** NED (Network Element Driver) ** .
+- NSO needs to pull the  ** SSH keys **  from the device. This is done only after the commit has occured and the device
+- Finally you need to tell it to grab a local copy of the  ** device's running config ** . NSO calls this process "sync-from," where NSO logs into the device and captures the running-config to parse it into NSO's local XML database. This local copy of the config will only be updated upon a request of sync-from. It does not automatically update. You can do a 'check-sync' to quickly find out if the NSO local config version is the same as the one currently on the device. We will cover this shortly.
 
 
 Here are the commands in NSO to add a new device with the device name first, then saying what the IP address is, and what authgroup we are using for it. We then specify that the device is a cli based device, and that cli style device is using the cisco-ios NED. Finally we unlock it so that we can sync-from the config into the NSO database. We then commit these changes. Unless they are commited, nothing has occured. It is like 'write mem' more or less.

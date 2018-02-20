@@ -94,7 +94,7 @@ This is completely normal. If you have any critical errors it would show here, l
 /Users/jabelk/ncs-all/ncs-4.4/bin/ncsc  `ls bgl-test-ann.yang  > /dev/null 2>&1 && echo "-a bgl-test-ann.yang"` \
               -c -o ../load-dir/bgl-test.fxs yang/bgl-test.yang
 yang/bgl-test.yang:11:3: error: trailing garbage after module
-make: *** [../load-dir/bgl-test.fxs] Error 1
+make:  ** * [../load-dir/bgl-test.fxs] Error 1
 ```
 
 Trailing garbage usually means you forgot a semi colon or a closing {}. Use Atom/Sublime or pyang to help with that.
