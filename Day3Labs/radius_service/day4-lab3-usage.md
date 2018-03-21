@@ -26,18 +26,18 @@ ncs_cli -C -u admin
 Then create our AMER service instance:
 
 ```
-branblac@ncs# config
+root_user@ncs# config
 Entering configuration mode terminal
-branblac@ncs(config)# services radius_service ?
+root_user@ncs(config)# services radius_service ?
 Possible completions:
   AMER  APJC  EMEA  range
-branblac@ncs(config)# services radius_service AMER
-branblac@ncs(config-radius_service-AMER)#
+root_user@ncs(config)# services radius_service AMER
+root_user@ncs(config-radius_service-AMER)#
 ```
 
 Now, lets see our configuration options:
 ```
-branblac@ncs(config-radius_service-AMER)# ?
+root_user@ncs(config-radius_service-AMER)# ?
 Possible completions:
   check-sync           Check if device config is according to the service
   commit-queue         
@@ -65,19 +65,19 @@ Possible completions:
 Lets start by setting the ip-address for our AMER region
 
 ```
-branblac@ncs(config-radius_service-AMER)# ip-address ?
+root_user@ncs(config-radius_service-AMER)# ip-address ?
 Possible completions:
   <IPv4 address>
-branblac@ncs(config-radius_service-AMER)# ip-address 10.0.0.1
-branblac@ncs(config-radius_service-AMER)#
+root_user@ncs(config-radius_service-AMER)# ip-address 10.0.0.1
+root_user@ncs(config-radius_service-AMER)#
 ```
 
 We are now ready to add devices to our AMER radius server:
 ```
-branblac@ncs(config-radius_service-AMER)# device ?
+root_user@ncs(config-radius_service-AMER)# device ?
 Possible completions:
   [  mydevice
-branblac@ncs(config-radius_service-AMER)# device mydevice
+root_user@ncs(config-radius_service-AMER)# device mydevice
 ```
 
 Now lets check what is going to be configured:

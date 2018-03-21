@@ -201,8 +201,8 @@ To validate your model, you can use the pyang tool https://github.com/mbj4668/py
 From the directory that you created the file, type `pyang switches.yang` If you model is error free then there will be no return!
 
 ```
-BRANBLAC-M-W0WN:BGL Training branblac$ pyang switches.yang
-BRANBLAC-M-W0WN:BGL Training branblac$
+root_user-M-W0WN:BGL Training root_user$ pyang switches.yang
+root_user-M-W0WN:BGL Training root_user$
 ```
 
 In recap we:
@@ -215,7 +215,7 @@ In recap we:
 Also, pyang can help us in building YANG models
 
 ```
-BRANBLAC-M-W0WN:BGL Training branblac$ pyang --help
+root_user-M-W0WN:BGL Training root_user$ pyang --help
 Usage: pyang [options] [<filename>...]
 
 Validates the YANG module in <filename> (or stdin), and all its dependencies.
@@ -392,7 +392,7 @@ For example, you can run the pyang linter on our model to see how we can improve
 Take a look:
 
 ```
-BRANBLAC-M-W0WN:BGL Training branblac$ pyang switches.yang --lint
+root_user-M-W0WN:BGL Training root_user$ pyang switches.yang --lint
 switches.yang:1: warning: RFC 6087: 4.1: no module name prefix string used
 switches.yang:1: error: RFC 6087: 4.7: statement "module" must have a "contact" substatement
 switches.yang:1: error: RFC 6087: 4.7: statement "module" must have a "organization" substatement
@@ -424,7 +424,7 @@ module switches {
   prefix switches;
 
   organization "Cisco Systems";
-  contact "branblac@cisco.com";
+  contact "root_user@cisco.com";
   description "Module to Model switches. Lab for Cisco System IT NSO Training.";
   revision 2017-10-01 {
     description
@@ -439,7 +439,7 @@ module switches {
 Now if we re-run the linter, we have removed some out our code smells and are ready to tackle the rest!
 
 ```
-BRANBLAC-M-W0WN:BGL Training branblac$ pyang switches.yang --lint
+root_user-M-W0WN:BGL Training root_user$ pyang switches.yang --lint
 switches.yang:1: warning: RFC 6087: 4.1: no module name prefix string used
 switches.yang:15: error: RFC 6087: 4.12: statement "list" must have a "description" substatement
 switches.yang:19: error: RFC 6087: 4.12: statement "leaf" must have a "description" substatement
@@ -488,7 +488,7 @@ leaf Manufacturer {
 
 Finally, after adding descriptions our linter returns clean (we can ignore the error presented):
 ```
-BRANBLAC-M-W0WN:BGL Training branblac$ pyang switches.yang --lint
+root_user-M-W0WN:BGL Training root_user$ pyang switches.yang --lint
 switches.yang:1: warning: RFC 6087: 4.1: no module name prefix string used
 ```
 

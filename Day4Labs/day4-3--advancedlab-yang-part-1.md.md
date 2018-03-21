@@ -72,7 +72,7 @@ Start by creating a new service package using the NSO make-package tools.
 
 In this portion of the lab we will only generate the YANG. We will tackle the remainder of the package in further labs.
 
-`BRANBLAC-M-W0WN:BGL Training branblac$ ncs-make-package --service-skeleton template acl_lab --augment /ncs:services`
+`root_user-M-W0WN:BGL Training root_user$ ncs-make-package --service-skeleton template acl_lab --augment /ncs:services`
 
 What this command is saying is: Make a new NSO service package based on the NSO Skeleton for a XML template service. The name of the package is 'acl_lab' and it is a service.
 
@@ -266,18 +266,18 @@ module acl_lab {
 
 Now if we navigate to the folder with the file and run pyang we can check for errors:
 ```
-BRANBLAC-M-W0WN:yang branblac$ pyang acl_lab.yang
+root_user-M-W0WN:yang root_user$ pyang acl_lab.yang
 acl_lab.yang:5: warning: imported module ietf-inet-types not used
-/Users/branblac/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:22: warning: imported module tailf-ncs-monitoring not used
-/Users/branblac/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1323: error: node tailf-ncs::connect is not found
-/Users/branblac/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1333: error: node tailf-ncs::sync-to is not found
-/Users/branblac/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1343: error: node tailf-ncs::sync-from is not found
-/Users/branblac/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1353: error: node tailf-ncs::disconnect is not found
-/Users/branblac/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1363: error: node tailf-ncs::check-sync is not found
-/Users/branblac/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1373: error: node tailf-ncs::check-yang-modules is not found
-/Users/branblac/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1384: error: node tailf-ncs::fetch-ssh-host-keys is not found
-/Users/branblac/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:3278: error: node tailf-ncs::disconnect is not found
-BRANBLAC-M-W0WN:yang branblac$
+/root/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:22: warning: imported module tailf-ncs-monitoring not used
+/root/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1323: error: node tailf-ncs::connect is not found
+/root/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1333: error: node tailf-ncs::sync-to is not found
+/root/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1343: error: node tailf-ncs::sync-from is not found
+/root/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1353: error: node tailf-ncs::disconnect is not found
+/root/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1363: error: node tailf-ncs::check-sync is not found
+/root/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1373: error: node tailf-ncs::check-yang-modules is not found
+/root/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:1384: error: node tailf-ncs::fetch-ssh-host-keys is not found
+/root/ncs-4.4/src/ncs/yang/tailf-ncs-devices.yang:3278: error: node tailf-ncs::disconnect is not found
+root_user-M-W0WN:yang root_user$
 ```
 
 Now, this may look like we have errors, but we do not! the errors are from the NSO Service modules and will not impact our model. ( the reason for the errors is due to pyang paths not finding the imported modules)
@@ -286,10 +286,10 @@ The final step is to compile your YANG/service package.
 
 From the src folder (acl_lab/src) enter the make command. Should should receive no errors:
 ```bash
-BRANBLAC-M-W0WN:src branblac$ make
-/Users/branblac/ncs-4.4/bin/ncsc  `ls acl_lab-ann.yang  > /dev/null 2>&1 && echo "-a acl_lab-ann.yang"` \
+root_user-M-W0WN:src root_user$ make
+/root/ncs-4.4/bin/ncsc  `ls acl_lab-ann.yang  > /dev/null 2>&1 && echo "-a acl_lab-ann.yang"` \
               -c -o ../load-dir/acl_lab.fxs yang/acl_lab.yang
-BRANBLAC-M-W0WN:src branblac$
+root_user-M-W0WN:src root_user$
 
 ```
 

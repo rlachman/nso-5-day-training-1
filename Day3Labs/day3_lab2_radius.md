@@ -14,7 +14,7 @@ radius server one
 
 Our first step is to create a new nso package.
 
-navigate to your ncs-run/packages directory and type:
+navigate to your nso-run/packages directory and type:
 
 `ncs-make-package --service-skeleton template simple_radius --augment /ncs:services`
 
@@ -24,7 +24,7 @@ This will create an new nso package for us.
 
 Our second step is to configure the YANG Service model with the our needed input parameters.
 
-Open the simple_radius.yang file that is found in  ncs-run/packages/simple_radius/src/yang
+Open the simple_radius.yang file that is found in  nso-run/packages/simple_radius/src/yang
 
 Inside the list:
 ```
@@ -57,12 +57,12 @@ list simple_radius {
 
 We are now complete with our model and ready to compile/make our package for NSO.
 
-In side the ncs-run/packages/simple_radius/src/  folder type `make`
+In side the nso-run/packages/simple_radius/src/  folder type `make`
 
 The results should look as below:
 ```
-BRANBLAC-M-W0WN:src branblac$ make
-/Users/branblac/ncs-4.4/bin/ncsc  `ls simple_radius-ann.yang  > /dev/null 2>&1 && echo "-a simple_radius-ann.yang"` \
+root_user-M-W0WN:src root_user$ make
+/root/ncs-4.4/bin/ncsc  `ls simple_radius-ann.yang  > /dev/null 2>&1 && echo "-a simple_radius-ann.yang"` \
               -c -o ../load-dir/simple_radius.fxs yang/simple_radius.yang
 ```
 
@@ -107,7 +107,7 @@ result-xml {
 admin@ncs(config-server-one)# end
 Uncommitted changes found, commit them? [yes/no/CANCEL] no
 ```
-Now, open the xml file inside ncs-run/packages/simple_radius/templates
+Now, open the xml file inside nso-run/packages/simple_radius/templates
 
 It should look like:
 

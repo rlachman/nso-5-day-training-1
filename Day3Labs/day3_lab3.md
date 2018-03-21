@@ -161,16 +161,16 @@ interface GigabitEthernet1/1
 Now let's take that config and plug it into a netsim to get the XML representation of it.
 
 ```
-JABELK-M-D3BK:nso-qos-no-python jabelk$ ncs-netsim create-device cisco-ios myqosdevice
+root_user-M-D3BK:nso-qos-no-python root_user$ ncs-netsim create-device cisco-ios myqosdevice
 DEVICE myqosdevice CREATED
-JABELK-M-D3BK:nso-qos-no-python jabelk$ ls
+root_user-M-D3BK:nso-qos-no-python root_user$ ls
 load-dir		netsim			package-meta-data.xml	src			templates		test
-JABELK-M-D3BK:nso-qos-no-python jabelk$ cd netsim/
-JABELK-M-D3BK:netsim jabelk$ ncs-netsim start
+root_user-M-D3BK:nso-qos-no-python root_user$ cd netsim/
+root_user-M-D3BK:netsim root_user$ ncs-netsim start
 DEVICE myqosdevice OK STARTED
-JABELK-M-D3BK:netsim jabelk$ ncs-netsim cli-i myqosdevice
+root_user-M-D3BK:netsim root_user$ ncs-netsim cli-i myqosdevice
 
-admin connected from 127.0.0.1 using console on JABELK-M-D3BK
+admin connected from 127.0.0.1 using console on root_user-M-D3BK
 myqosdevice> en
 myqosdevice# conf
 Enter configuration commands, one per line. End with CNTL/Z.
@@ -772,7 +772,7 @@ remove these parts (Take a minute to look over why I chose them, look at the cut
 Now that we have the XML we can create the service-skeleton
 
 ```
-cd ncs-run
+cd nso-run
 cd packages
 ncs-make-package --service-skeleton template nso-qos-no-python --augment /ncs:services
 ```
@@ -873,9 +873,9 @@ COPY AND PASTE HERE
 Now change directory to the src folder and reload the packages. We do not need to run the make command because we did not change the yang.
 
 ```
-JABELK-M-D3BK:src jabelk$ ncs_cli -C -u admin
+root_user-M-D3BK:src root_user$ ncs_cli -C -u admin
 
-admin connected from 127.0.0.1 using console on JABELK-M-D3BK
+admin connected from 127.0.0.1 using console on root_user-M-D3BK
 admin@ncs# packages reload
 
 >>> System upgrade is starting.
@@ -1204,9 +1204,9 @@ Commit complete.
 - Make an out of band change on the device, logging in through a separate ssh session, and remove a piece of the config that the template is looking for, try re-deploying the service, to see it re-enforce the template.
 
 ```
-JABELK-M-D3BK:myqosdevice jabelk$ ncs-netsim cli-i myqosdevice
+root_user-M-D3BK:myqosdevice root_user$ ncs-netsim cli-i myqosdevice
 
-admin connected from 127.0.0.1 using console on JABELK-M-D3BK
+admin connected from 127.0.0.1 using console on root_user-M-D3BK
 myqosdevice> en
 myqosdevice# conf
 Enter configuration commands, one per line. End with CNTL/Z.

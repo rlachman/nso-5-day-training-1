@@ -5,7 +5,7 @@ You can have NSO auto generate a yang module for you. By default, it plugs in so
 # Creating the Service Skeleton and adapting it to be a simple module
 
 ```
-cd ncs-run
+cd nso-run
 cd packages
 ncs-make-package --service-skeleton template bgl-test
 rm bgl-test/templates/bgl-test-template.xml
@@ -75,7 +75,7 @@ In this most simple example, we are creating a container to house a single piece
 *note* that when you are updating yang modules for NSO you need to do *both* a bash "make" command in the src folder in that package directory *and* a packages reload within the NSO application. For example:
 
 ```
-cd ncs-run/packages/bgl-test/src
+cd nso-run/packages/bgl-test/src
 make
 ```
 
@@ -84,14 +84,14 @@ and you should get a result like this:
 ```
 mkdir -p ../load-dir
 mkdir -p java/src
-/Users/jabelk/ncs-all/ncs-4.4/bin/ncsc  `ls bgl-test-ann.yang  > /dev/null 2>&1 && echo "-a bgl-test-ann.yang"` \
+/root/ncs-all/ncs-4.4/bin/ncsc  `ls bgl-test-ann.yang  > /dev/null 2>&1 && echo "-a bgl-test-ann.yang"` \
               -c -o ../load-dir/bgl-test.fxs yang/bgl-test.yang
 ```
 
 This is completely normal. If you have any critical errors it would show here, like this:
 
 ```
-/Users/jabelk/ncs-all/ncs-4.4/bin/ncsc  `ls bgl-test-ann.yang  > /dev/null 2>&1 && echo "-a bgl-test-ann.yang"` \
+/root/ncs-all/ncs-4.4/bin/ncsc  `ls bgl-test-ann.yang  > /dev/null 2>&1 && echo "-a bgl-test-ann.yang"` \
               -c -o ../load-dir/bgl-test.fxs yang/bgl-test.yang
 yang/bgl-test.yang:11:3: error: trailing garbage after module
 make:  ** * [../load-dir/bgl-test.fxs] Error 1

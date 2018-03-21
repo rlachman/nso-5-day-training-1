@@ -17,15 +17,15 @@ We ip addresses varying on which region we are in.
 
 Begin by entering the NSO CLI
 ```
-BRANBLAC-M-W0WN:BGL Training branblac$ ncs_cli -C -u admin
+root_user-M-W0WN:BGL Training root_user$ ncs_cli -C -u admin
 ```
 
 Then enter into config mode and begin configuring a netsim or ios device for the above cli:
 
 ```
-BRANBLAC-M-W0WN:src branblac$ ncs_cli -C -u admin
+root_user-M-W0WN:src root_user$ ncs_cli -C -u admin
 
-admin connected from 127.0.0.1 using console on BRANBLAC-M-W0WN
+admin connected from 127.0.0.1 using console on root_user-M-W0WN
 admin@ncs# config
 Entering configuration mode terminal
 admin@ncs(config)# devices device lab-gw0 config
@@ -165,7 +165,7 @@ Now, lets replace the ip address with a variable referencing our YANG model:
 Now that our templates complete lets reload our package and see if the template is valid:
 
 ```
-branblac@ncs# packages reload
+root_user@ncs# packages reload
 
 >>> System upgrade is starting.
 >>> Sessions in configure mode must exit to operational mode.
@@ -187,16 +187,16 @@ reload-result {
     package ubvpn
     result true
 }
-branblac@ncs#
+root_user@ncs#
 System message at 2017-10-20 17:44:18...
     Subsystem stopped: ncs-dp-2-cisco-ios:IOSDp
-branblac@ncs#
+root_user@ncs#
 System message at 2017-10-20 17:44:18...
     Subsystem stopped: ncs-dp-1-cisco-asa:ASADp
 
 System message at 2017-10-20 17:44:18...
     Subsystem started: ncs-dp-3-cisco-asa:ASADp
-branblac@ncs# branblac@ncs#
+root_user@ncs# root_user@ncs#
 System message at 2017-10-20 17:44:18...
     Subsystem started: ncs-dp-4-cisco-ios:IOSDp
 ```

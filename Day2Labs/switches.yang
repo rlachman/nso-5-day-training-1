@@ -3,7 +3,7 @@ module switches {
   prefix "switches";
 
   organization "Cisco Systems";
-  contact "branblac@cisco.com";
+  contact "root_user@cisco.com";
   description "Module to Model switches. Lab for Cisco System IT NSO Training.";
   revision 2017-10-01 {
     description

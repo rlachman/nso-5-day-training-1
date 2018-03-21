@@ -13,9 +13,9 @@ Our YANG Model will have the following attributes:
 
 # Step 1
 
-Begin by creating a new NSO Service package in the ncs-run directory:
+Begin by creating a new NSO Service package in the nso-run directory:
 ```
-BRANBLAC-M-W0WN:BGL Training branblac$ ncs-make-package --service-skeleton template radius_service --augment /ncs:services
+root_user-M-W0WN:BGL Training root_user$ ncs-make-package --service-skeleton template radius_service --augment /ncs:services
 ```
 
 # Step 2
@@ -177,9 +177,9 @@ Now that our YANG model is complete we can compile the model.
 cd to our packages src directory and type make:
 
 ```cli
-BRANBLAC-M-W0WN:packages branblac$ cd radius_service/src
-BRANBLAC-M-W0WN:src branblac$ make
+root_user-M-W0WN:packages root_user$ cd radius_service/src
+root_user-M-W0WN:src root_user$ make
 mkdir -p ../load-dir
-/Users/branblac/ncs-4.4/bin/ncsc  `ls radius_service-ann.yang  > /dev/null 2>&1 && echo "-a radius_service-ann.yang"` \
+/root/ncs-4.4/bin/ncsc  `ls radius_service-ann.yang  > /dev/null 2>&1 && echo "-a radius_service-ann.yang"` \
               -c -o ../load-dir/radius_service.fxs yang/radius_service.yang
 ```

@@ -99,7 +99,7 @@ def add_device(device_name):
         root.devices.device[device_name].device_type.cli.create()
         root.devices.device[device_name].device_type.cli.ned_id = "ios-id:cisco-ios"
         root.devices.device[device_name].device_type.cli.protocol = "ssh"
-        root.devices.device[device_name].authgroup = "branblac"
+        root.devices.device[device_name].authgroup = "root_user"
         root.devices.device[device_name].state.admin_state = "unlocked"
         t2.apply()
     with ncs.maapi.single_write_trans('admin', 'python', groups=['ncsadmin']) as t3:
