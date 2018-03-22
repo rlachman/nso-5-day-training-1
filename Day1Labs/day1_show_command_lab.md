@@ -92,7 +92,7 @@ interface GigabitEthernet0/1
  no ip address
 exit
 radius server one
- address ipv4 10.0.0.1 auth-port 1812 acct-port 1813
+ address ipv4 10.0.0.1 auth-port 669 acct-port 672
 !
 netsim_lab_gw#
 admin@ncs#

@@ -10,7 +10,7 @@ For our AMER Region, we expecting the config below to be applied to every device
 
 ```
 radius server one
-  address ipv4 10.0.0.1 auth-port 1812 acct-port 1813
+  address ipv4 10.0.0.1 auth-port 669 acct-port 672
 ```
 
 # Step 1
@@ -93,8 +93,8 @@ cli {
              +                    address {
              +                        ipv4 {
              +                            host 10.0.0.1;
-             +                            auth-port 1812;
-             +                            acct-port 1813;
+             +                            auth-port 669;
+             +                            acct-port 672;
              +                        }
              +                    }
              +                }
@@ -120,7 +120,7 @@ native {
     device {
         name mydevice
         data radius server one
-              address ipv4 10.0.0.1 auth-port 1812 acct-port 1813
+              address ipv4 10.0.0.1 auth-port 669 acct-port 672
              !
     }
 }
@@ -167,7 +167,7 @@ native {
         name mydevice
         data
               radius server one
-               address ipv4 10.0.0.1 auth-port 1812 acct-port 1813
+               address ipv4 10.0.0.1 auth-port 669 acct-port 672
               !
 
     }
@@ -189,7 +189,7 @@ native {
         name mydevice
         data
               radius server one
-               address ipv4 10.0.0.1 auth-port 1812 acct-port 1813
+               address ipv4 10.0.0.1 auth-port 669 acct-port 672
               !
 
     }

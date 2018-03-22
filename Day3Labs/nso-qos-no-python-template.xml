@@ -166,7 +166,7 @@
                                   <rule>permit udp any any range 1645 1646</rule>
                                 </ext-access-list-rule>
                                 <ext-access-list-rule>
-                                  <rule>permit udp any any range 1812 1813</rule>
+                                  <rule>permit udp any any range 669 672</rule>
                                 </ext-access-list-rule>
                               </ext-named-acl>
                               <ext-named-acl>

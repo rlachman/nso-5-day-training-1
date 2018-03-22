@@ -8,7 +8,7 @@ Our service will apply the configuration:
 
 ```
 radius server one
-  address ipv4 10.0.0.1 auth-port 1812 acct-port 1813
+  address ipv4 10.0.0.1 auth-port 669 acct-port 672
 ```
 
 We ip addresses varying on which region we are in.
@@ -34,7 +34,7 @@ admin@ncs(config-server-one)# address ipv4 10.0.0.1 a
 Possible completions:
   acct-port   UDP port for RADIUS accounting server (default is 1646)
   auth-port   UDP port for RADIUS authentication server (default is 1645)
-admin@ncs(config-server-one)# address ipv4 10.0.0.1 auth-port 1812 acct-port 1813
+admin@ncs(config-server-one)# address ipv4 10.0.0.1 auth-port 669 acct-port 672
 ```
 
 Once configured, issue a commit dry-run outformat xml command to get our xml skeleton:
@@ -52,8 +52,8 @@ result-xml {
                        <address>
                          <ipv4>
                            <host>10.0.0.1</host>
-                           <auth-port>1812</auth-port>
-                           <acct-port>1813</acct-port>
+                           <auth-port>669</auth-port>
+                           <acct-port>672</acct-port>
                          </ipv4>
                        </address>
                      </server>
@@ -115,8 +115,8 @@ Now, lets place the config tags from out outputted XML into the template:
             <address>
               <ipv4>
                 <host>10.0.0.1</host>
-                <auth-port>1812</auth-port>
-                <acct-port>1813</acct-port>
+                <auth-port>669</auth-port>
+                <acct-port>672</acct-port>
               </ipv4>
             </address>
           </server>
@@ -147,8 +147,8 @@ Now, lets replace the ip address with a variable referencing our YANG model:
             <address>
               <ipv4>
                 <host>{/ip-address}</host>
-                <auth-port>1812</auth-port>
-                <acct-port>1813</acct-port>
+                <auth-port>669</auth-port>
+                <acct-port>672</acct-port>
               </ipv4>
             </address>
           </server>

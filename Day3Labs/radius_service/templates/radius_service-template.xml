@@ -15,8 +15,8 @@
             <address>
               <ipv4>
                 <host>{/ip-address}</host>
-                <auth-port>1812</auth-port>
-                <acct-port>1813</acct-port>
+                <auth-port>669</auth-port>
+                <acct-port>672</acct-port>
               </ipv4>
             </address>
           </server>

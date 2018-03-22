@@ -7,7 +7,7 @@ This lab will be able to configure and enforce a global radius server configurat
 The config we will be sending is:
 ```
 radius server one
-  address ipv4 (our ip address) auth-port 1812 acct-port 1813
+  address ipv4 (our ip address) auth-port 669 acct-port 672
 ```
 
 # Step 1
@@ -79,7 +79,7 @@ admin@ncs# conf
 Entering configuration mode terminal
 admin@ncs(config)# devices device netsim_lab_gw config
 admin@ncs(config-config)# ios:radius server one
-admin@ncs(config-server-one)# address ipv4 10.0.0.1 auth-port 1812 acct-port 1813
+admin@ncs(config-server-one)# address ipv4 10.0.0.1 auth-port 669 acct-port 672
 admin@ncs(config-server-one)# commit dry-run outformat xml
 result-xml {
     local-node {
@@ -93,8 +93,8 @@ result-xml {
                        <address>
                          <ipv4>
                            <host>10.0.0.1</host>
-                           <auth-port>1812</auth-port>
-                           <acct-port>1813</acct-port>
+                           <auth-port>669</auth-port>
+                           <acct-port>672</acct-port>
                          </ipv4>
                        </address>
                      </server>
@@ -161,8 +161,8 @@ We now have the basic structure for our template. Copy the tags from our dry-run
             <address>
               <ipv4>
                 <host>10.0.0.1</host>
-                <auth-port>1812</auth-port>
-                <acct-port>1813</acct-port>
+                <auth-port>669</auth-port>
+                <acct-port>672</acct-port>
               </ipv4>
             </address>
           </server>
@@ -202,8 +202,8 @@ Do this via the {/variable_name} form, for us it would be {/radius_server_ip}
             <address>
               <ipv4>
                 <host>{/radius_server_ip}</host>
-                <auth-port>1812</auth-port>
-                <acct-port>1813</acct-port>
+                <auth-port>669</auth-port>
+                <acct-port>672</acct-port>
               </ipv4>
             </address>
           </server>
@@ -246,7 +246,7 @@ Create an instance of your service service, add a device or many and issue a com
 You should see:
 ```
 radius server one
- address ipv4 10.0.0.3 auth-port 1812 acct-port 1813
+ address ipv4 10.0.0.3 auth-port 669 acct-port 672
 !
 ```
 

@@ -84,7 +84,7 @@ ip access-list extended qos-signalling
  permit udp any any range 5060 5061
  remark RADIUS for EAP
  permit udp any any range 1645 1646
- permit udp any any range 1812 1813
+ permit udp any any range 669 672
 !
 ip access-list extended qos-video-af41
  remark Traffic to be classified as AF41
@@ -388,7 +388,7 @@ you will get something like this:
                   <rule>permit udp any any range 1645 1646</rule>
                 </ext-access-list-rule>
                 <ext-access-list-rule>
-                  <rule>permit udp any any range 1812 1813</rule>
+                  <rule>permit udp any any range 669 672</rule>
                 </ext-access-list-rule>
               </ext-named-acl>
               <ext-named-acl>
